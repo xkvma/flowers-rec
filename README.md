@@ -35,6 +35,14 @@ pip install -r requirements.txt
 ### Training
 You can try run ```train.ipynb``` and change something to get your own model
 
+You can:
+- add new augmentations
+- try other models
+- add other datasets
+- try different metrics (like precision/recall)
+- create onnx model with optimizations for faster inference
+- and many other
+  
 ### Run flask app
 Make sure to navigate to the directory where app.py is located and run:
 ```bash
