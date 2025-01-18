@@ -2,7 +2,8 @@
 ![image](https://github.com/user-attachments/assets/e147a9b6-9f50-4cb3-b40c-d5f3f3c8847d)
 ## Description
 This repository contains code for training a machine learning model to find similar flowers and serving it via a Flask web application.  
-The application allows users to submit data, and finds similar flower images from cached database. 
+The application allows users to submit data, and finds similar flower images from cached database.  
+Repository was created with Python 3.9, but most likely will work with lower python and packages versions.  
 
 ## Features
 - Notebook with model training.
