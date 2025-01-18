@@ -6,6 +6,8 @@ from tqdm.autonotebook import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
+from sklearn.metrics.pairwise import cosine_similarity
+from collections import OrderedDict
 
 def train_model(model, train_loader, val_loader, epochs=25, device="cpu"):
     criterion = nn.CrossEntropyLoss()
@@ -104,3 +106,11 @@ def get_test_metrics(model, model_name, test_loader, device="cpu"):
     disp.plot()
     plt.title(f"{model_name} confusion matrix")
     print(f"Accuracy {accuracy_score(y_true, y_pred)}")
+    
+def get_top5_similarity(emb, embeddings):
+    emb = emb.reshape(1, -1)
+    similarities = cosine_similarity(emb, embeddings)
+    results = OrderedDict()
+    for i in np.argsort(similarities)[0,:-6:-1]:
+        results[i] = similarities[0,i]
+    return results
