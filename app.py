@@ -51,4 +51,4 @@ def predict():
         return jsonify(get_prediction(image_bytes=img_bytes))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
