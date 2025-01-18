@@ -100,9 +100,15 @@ def get_test_predicts(model, test_loader, device="cpu"):
             
     return y_true, y_pred
 
-def get_test_metrics(model, model_name, test_loader, device="cpu"):
+def get_test_metrics(model, model_name, test_loader, device="cpu", idx_to_class=None):
     y_true, y_pred = get_test_predicts(model, test_loader, device=device)
-    disp = ConfusionMatrixDisplay(confusion_matrix(y_true, y_pred), display_labels=list(idx_to_class.values()))
+    
+    if idx_to_class == None:
+        display_labels = list(idx_to_class.values())
+    else:
+        display_labels = None
+        
+    disp = ConfusionMatrixDisplay(confusion_matrix(y_true, y_pred), display_labels=display_labels)
     disp.plot()
     plt.title(f"{model_name} confusion matrix")
     print(f"Accuracy {accuracy_score(y_true, y_pred)}")
