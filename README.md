@@ -50,7 +50,7 @@ docker run -d -p 5000:5000 twainsanity/flowers:latest
 ```
 
 ## Make Predictions
-After flask app initialization use the following curl command tool like Postman to make request:
+After flask app initialization use the following curl command or tool like Postman to make request:
 ```bash
 curl -X POST -F file=@test_images/alex.jpg http://localhost:5000/predict
 ```
